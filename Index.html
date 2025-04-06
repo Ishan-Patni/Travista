@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Website</title>
+  <script defer src="Script.js"></script>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="brand">
+      <span class="logo" href="#">✈️ Travista</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#booking-form">Book</a></li>
+      <li class="dropdown">
+        <a href="#Packages">Packages ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="#US">United States</a></li>
+          <li><a href="#India">India</a></li>
+          <li><a href="#France">France</a></li>
+          <li><a href="#Germany">Germany</a></li>
+        </ul>
+      </li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#Gallery">Gallery</a></li>
+      <li><a href="#About">About</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <button class="login" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+      <button class="register" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+    </div>
+    <button class="hamburger-menu" aria-label="Toggle Navigation">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>Travista</span></h1>
+      <h2>Visit <span id="changing-place">Germany</span></h2>
+      <button class="book-now">Book Now</button>
+    </div>
+  </header>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <input type="email" class="form-control" placeholder="Email ID" required>
+            <input type="password" class="form-control" placeholder="Password" required>
+            <button type="submit" class="btn btn-primary w-100 mt-2">Login</button>
+            <p class="mt-2 text-center">Don't have an account? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Register</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <input type="text" class="form-control" placeholder="Full Name" required>
+            <input type="text" class="form-control" placeholder="Contact" pattern="[0-9]{10}" required>
+            <input type="date" class="form-control" required>
+            <input type="email" class="form-control" placeholder="Email ID" required>
+            <input type="password" class="form-control" placeholder="Password" required>
+            <select class="form-select" required>
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <button type="submit" class="btn btn-success w-100 mt-2">Register</button>
+            <p class="mt-2 text-center">Already have an account? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+
+  <!-------------------------- CheckPoint 2 ------------------------------------------!>
+<!-- Booking Section -->
+  <section class="section-row">
+    <!-- Container for Image and Form -->
+    <div class="container">
+      <!-- Left Section (Image) -->
+      <div class="left-section">
+        <img src="Images/Travista F.jpg" alt="Travista Brand Image">
+      </div>
+
+      <!-- Right Section (Form) -->
+      <div class="right-section">
+        <div class="form-container">
+          <h2 class="form-title">Travista Booking</h2>
+          <form id="booking-form">
+            <label for="where-to">Where to:</label>
+            <select id="where-to" required>
+              <option value="" disabled selected>Select a destination</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="India">India</option>
+              <option value="United States">United States</option>
+              <option value="Australia">Australia</option>
+            </select>
+
+            <label for="how-many">How Many Persons:</label>
+            <input type="number" id="how-many" min="1" required>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" required>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" rows="4" minlength="50" maxlength="500" required></textarea>
+
+            <button type="submit">Book Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Package Gallery Section -->
+  <section id="Packages" class="package-gallery">
+    <h2 class="pkgallery-title">Our Travel Packages</h2>
+    <div class="gallery-container">
+      <!-- Package 1 -->
+      <div id="Germany" class="package-card">
+        <img src="Images/Germany.jpg" alt="Germany" class="package-img">
+        <h3 class="place-name">Germany</h3>
+        <p class="attractions">Visit the historic Brandenburg Gate, the Black Forest, and the beautiful Bavarian Alps.</p>
+        <p class="price">$1200 USD</p>
+        <p class="rating">Rating: 4.5 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 2 -->
+      <div id="France" class="package-card">
+        <img src="Images/France.jpg" alt="France" class="package-img">
+        <h3 class="place-name">France</h3>
+        <p class="attractions">Explore the Eiffel Tower, Louvre Museum, and the beautiful French Riviera.</p>
+        <p class="price">$1500 USD</p>
+        <p class="rating">Rating: 4.7 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 3 -->
+      <div id="India" class="package-card">
+        <img src="Images/India.jpg" alt="India" class="package-img">
+        <h3 class="place-name">India</h3>
+        <p class="attractions">Experience the Taj Mahal, Jaipur's palaces, and the Kerala backwaters.</p>
+        <p class="price">$1100 USD</p>
+        <p class="rating">Rating: 4.6 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 4 -->
+      <div id="US" class="package-card">
+        <img src="Images/US.jpg" alt="United States" class="package-img">
+        <h3 class="place-name">United States</h3>
+        <p class="attractions">Visit the Grand Canyon, Statue of Liberty, and the beaches of California.</p>
+        <p class="price">$1800 USD</p>
+        <p class="rating">Rating: 4.8 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 5 -->
+      <div class="package-card">
+        <img src="Images/AUS.jpg" alt="Australia" class="package-img">
+        <h3 class="place-name">Australia</h3>
+        <p class="attractions">Explore the Great Barrier Reef, Sydney Opera House, and the Outback.</p>
+        <p class="price">$1300 USD</p>
+        <p class="rating">Rating: 4.6 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 6 -->
+      <div class="package-card">
+        <img src="Images/Jap.jpg" alt="Japan" class="package-img">
+        <h3 class="place-name">Japan</h3>
+        <p class="attractions">Experience Tokyo Disneyland, Mount Fuji, and Kyoto's ancient temples.</p>
+        <p class="price">$1400 USD</p>
+        <p class="rating">Rating: 4.7 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 7 -->
+      <div class="package-card">
+        <img src="Images/Italy.jpg" alt="Italy" class="package-img">
+        <h3 class="place-name">Italy</h3>
+        <p class="attractions">Visit Rome’s Colosseum, Venice canals, and Tuscany’s vineyards.</p>
+        <p class="price">$1600 USD</p>
+        <p class="rating">Rating: 4.6 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 8 -->
+      <div class="package-card">
+        <img src="Images/Brazil.jpg" alt="Brazil" class="package-img">
+        <h3 class="place-name">Brazil</h3>
+        <p class="attractions">Explore Rio's beaches, the Amazon rainforest, and Iguazu Falls.</p>
+        <p class="price">$1250 USD</p>
+        <p class="rating">Rating: 4.5 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+
+      <!-- Package 9 -->
+      <div class="package-card">
+        <img src="Images/Egypt.jpg" alt="Egypt" class="package-img">
+        <h3 class="place-name">Egypt</h3>
+        <p class="attractions">See the Great Pyramids, Luxor's temples, and Nile River cruises.</p>
+        <p class="price">$1350 USD</p>
+        <p class="rating">Rating: 4.7 ★</p>
+        <button class="book-now">Book Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <h3>Affordable Hotels</h3>
+        <p>Find the best accommodations at the lowest prices.</p>
+      </div>
+      <div class="service-card">
+        <h3>Food & Drinks</h3>
+        <p>Delicious meals and drinks during your journey.</p>
+      </div>
+      <div class="service-card">
+        <h3>Safety Guide</h3>
+        <p>Travel with confidence with our safety guides.</p>
+      </div>
+      <div class="service-card">
+        <h3>Custom Itineraries</h3>
+        <p>Plan your trip with customized itineraries.</p>
+      </div>
+      <div class="service-card">
+        <h3>24/7 Support</h3>
+        <p>We are here for you, anytime, anywhere.</p>
+      </div>
+      <div class="service-card">
+        <h3>Local Experiences</h3>
+        <p>Immerse yourself in unique local cultures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- CheckPoint 3 ------------------------------------------!>
+ 
+<!-- Gallery Section -->
+  <div id="Gallery" class="gallery-contain">
+    <h2 class="gallery-title">Gallery</h2>
+    <div class="carousel">
+      <button class="prev">&lt;</button>
+      <div class="carousel-track">
+        <img src="Images/WT1.jpg" alt="Image 1">
+        <img src="Images/WT2.jpg" alt="Image 2">
+        <img src="Images/WT3.jpg" alt="Image 3">
+        <img src="Images/WT4.jpg" alt="Image 4">
+        <img src="Images/WT5.jpg" alt="Image 5">
+      </div>
+      <button class="next">&gt;</button>
+    </div>
+  </div>
+
+  <!-- About Us Section -->
+  <section id="About" class="about-section">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="Images/Travista F.jpg" alt="Travista Team">
+      </div>
+      <div class="about-text">
+        <h2>About Travista</h2>
+        <p>Travista was founded with a vision to make travel seamless and adventurous. We have been offering personalized experiences, ensuring that each journey is filled with comfort, joy, and memories. Established in 2025, we have curated tours across multiple destinations, catering to all types of travelers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Travista. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
